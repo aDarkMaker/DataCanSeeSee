@@ -3,6 +3,8 @@
         ""
     ],
     "ignorePaths": [
-        "task.md"
+        "task.md",
+        "requirements.txt",
+        "E-1/experiment.py"
     ]
 }
