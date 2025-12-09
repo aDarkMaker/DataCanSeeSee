@@ -15,6 +15,7 @@
         "requirements.txt",
         "E-1/experiment.py",
         "E-1/answers.md",
-        "*.html"
+        "*.html",
+        "weibo.json"
     ]
 }
