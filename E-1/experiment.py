@@ -1,7 +1,7 @@
-import pandas as pd
-import matplotlib.pyplot as plt
-import numpy as np
-from matplotlib import font_manager
+import pandas as pd  # pyright: ignore[reportMissingImports]
+import matplotlib.pyplot as plt  # pyright: ignore[reportMissingImports]
+import numpy as np  # pyright: ignore[reportMissingImports]
+from matplotlib import font_manager  # pyright: ignore[reportMissingImports]
 
 plt.rcParams['font.sans-serif'] = ['Arial Unicode MS', 'SimHei', 'DejaVu Sans']
 plt.rcParams['axes.unicode_minus'] = False
