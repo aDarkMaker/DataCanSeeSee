@@ -1,11 +1,20 @@
 {
     "words": [
-        ""
+        "axislabel",
+        "datazoom",
+        "focusnode",
+        "itemstyle",
+        "KHTML",
+        "linestyle",
+        "MACARONS",
+        "pyecharts",
+        "weibo"
     ],
     "ignorePaths": [
         "task.md",
         "requirements.txt",
         "E-1/experiment.py",
-        "E-1/answers.md"
+        "E-1/answers.md",
+        "*.html"
     ]
 }
