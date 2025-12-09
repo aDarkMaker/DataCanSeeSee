@@ -379,7 +379,7 @@ for idx, row in top3.iterrows():
     )
     pie_charts.append(pie)
 
-from pyecharts.charts import Grid
+from pyecharts.charts import Grid  # pyright: ignore[reportMissingImports]
 
 grid = Grid(init_opts=opts.InitOpts(width="1600px", height="600px", theme=ThemeType.MACARONS))
 for i, pie in enumerate(pie_charts):
