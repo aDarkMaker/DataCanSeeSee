@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>世界杯数据可视化 - 视图导航</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', 'Microsoft YaHei', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1800px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px 40px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .header p {
+            font-size: 16px;
+            opacity: 0.9;
+        }
+
+        .nav-container {
+            background: #f8f9fa;
+            padding: 20px 40px;
+            border-bottom: 2px solid #e9ecef;
+        }
+
+        .nav-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .nav-tab {
+            padding: 12px 24px;
+            background: white;
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            color: #475569;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nav-tab::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            transition: left 0.3s ease;
+            z-index: 0;
+        }
+
+        .nav-tab span {
+            position: relative;
+            z-index: 1;
+        }
+
+        .nav-tab:hover {
+            border-color: #667eea;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+        }
+
+        .nav-tab:hover::before {
+            left: 0;
+        }
+
+        .nav-tab.active {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-color: #667eea;
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+        }
+
+        .nav-tab.active::before {
+            left: 0;
+        }
+
+        .view-container {
+            padding: 30px;
+            min-height: 900px;
+            background: #ffffff;
+        }
+
+        .view-frame {
+            width: 100%;
+            height: 900px;
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            background: #ffffff;
+            display: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .view-frame.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .view-info {
+            text-align: center;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+        }
+
+        .view-info h2 {
+            font-size: 24px;
+            color: #1e293b;
+            margin-bottom: 8px;
+        }
+
+        .view-info p {
+            font-size: 14px;
+            color: #64748b;
+        }
+
+        .footer {
+            background: #f8f9fa;
+            padding: 20px;
+            text-align: center;
+            color: #64748b;
+            font-size: 14px;
+            border-top: 2px solid #e9ecef;
+        }
+
+        @media (max-width: 768px) {
+            .nav-tabs {
+                flex-direction: column;
+            }
+
+            .nav-tab {
+                width: 100%;
+            }
+
+            .view-frame {
+                height: 600px;
+            }
+
+            .header h1 {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>⚽ 世界杯数据可视化</h1>
+            <p>1930-2018年世界杯数据分析与可视化展示</p>
+        </div>
+
+        <div class="nav-container">
+            <div class="nav-tabs">
+                <div class="nav-tab active" onclick="showView(0)">
+                    <span>📈 总进球数趋势</span>
+                </div>
+                <div class="nav-tab" onclick="showView(1)">
+                    <span>🌍 各洲举办次数</span>
+                </div>
+                <div class="nav-tab" onclick="showView(2)">
+                    <span>🏆 各洲冠军次数</span>
+                </div>
+                <div class="nav-tab" onclick="showView(3)">
+                    <span>👥 观众人数变化</span>
+                </div>
+                <div class="nav-tab" onclick="showView(4)">
+                    <span>👨‍👩‍👧‍👦 参赛队伍数量</span>
+                </div>
+                <div class="nav-tab" onclick="showView(5)">
+                    <span>⭐ 前四名次数</span>
+                </div>
+                <div class="nav-tab" onclick="showView(6)">
+                    <span>⚡ 场均进球数</span>
+                </div>
+                <div class="nav-tab" onclick="showView(7)">
+                    <span>🥇 冠军次数</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="view-container">
+            <div class="view-info" id="viewInfo">
+                <h2>历届世界杯总进球数趋势（1930-2018）</h2>
+                <p>展示1930年至2018年共21届世界杯的总进球数变化趋势</p>
+            </div>
+
+            <iframe id="view0" class="view-frame active" src="view1_goals_trend.html"></iframe>
+            <iframe id="view1" class="view-frame" src="view2_host_continent.html"></iframe>
+            <iframe id="view2" class="view-frame" src="view3_winner_continent.html"></iframe>
+            <iframe id="view3" class="view-frame" src="view4_attendance_trend.html"></iframe>
+            <iframe id="view4" class="view-frame" src="view5_teams_count.html"></iframe>
+            <iframe id="view5" class="view-frame" src="view6_top4_teams.html"></iframe>
+            <iframe id="view6" class="view-frame" src="view7_avg_goals.html"></iframe>
+            <iframe id="view7" class="view-frame" src="view8_champions.html"></iframe>
+        </div>
+
+        <div class="footer">
+            <p>数据来源：世界杯数据集（1930-2018） | 可视化工具：PyECharts</p>
+        </div>
+    </div>
+
+    <script>
+        const viewInfo = [
+            {
+                title: "历届世界杯总进球数趋势（1930-2018）",
+                desc: "展示1930年至2018年共21届世界杯的总进球数变化趋势，可以看到随着参赛队伍和比赛场次的增加，总进球数整体呈上升趋势"
+            },
+            {
+                title: "各洲举办世界杯次数分布",
+                desc: "展示各洲举办世界杯的次数分布情况，欧洲和美洲是主要举办地，体现了足球运动在这些地区的传统优势"
+            },
+            {
+                title: "各洲获得世界杯冠军次数",
+                desc: "展示各洲获得世界杯冠军的次数统计，欧洲和南美洲占据绝对优势，展现了这两个地区在足球领域的统治地位"
+            },
+            {
+                title: "历届世界杯观众人数变化（1930-2018）",
+                desc: "展示历届世界杯观众人数的变化趋势，随着世界杯影响力的扩大和体育场容量的增加，观众人数呈显著上升趋势"
+            },
+            {
+                title: "历届世界杯参赛队伍数量变化",
+                desc: "展示历届世界杯参赛队伍数量的变化，从最初的13支队伍逐步扩军至32支，反映了世界杯的国际化程度不断提高"
+            },
+            {
+                title: "进入前四名次数最多的10支队伍",
+                desc: "展示进入前四名次数最多的10支队伍，这些传统强队在世界杯舞台上展现了稳定的表现"
+            },
+            {
+                title: "历届世界杯场均进球数变化",
+                desc: "展示历届世界杯场均进球数的变化趋势，现代世界杯的场均进球数相对稳定，反映了足球战术的发展和防守水平的提高"
+            },
+            {
+                title: "各队获得世界杯冠军次数",
+                desc: "展示所有获得过世界杯冠军的队伍及其夺冠次数，巴西5次夺冠，是世界杯历史上最成功的球队"
+            }
+        ];
+
+        function showView(index) {
+            // 隐藏所有视图
+            const frames = document.querySelectorAll('.view-frame');
+            frames.forEach(frame => {
+                frame.classList.remove('active');
+            });
+
+            // 移除所有标签的active类
+            const tabs = document.querySelectorAll('.nav-tab');
+            tabs.forEach(tab => {
+                tab.classList.remove('active');
+            });
+
+            // 显示选中的视图
+            const selectedFrame = document.getElementById(`view${index}`);
+            selectedFrame.classList.add('active');
+
+            // 激活选中的标签
+            tabs[index].classList.add('active');
+
+            // 更新视图信息
+            const info = viewInfo[index];
+            document.getElementById('viewInfo').innerHTML = `
+                <h2>${info.title}</h2>
+                <p>${info.desc}</p>
+            `;
+
+            // 滚动到顶部
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // 页面加载完成后的初始化
+        window.addEventListener('load', function() {
+            // 确保第一个视图正确显示
+            showView(0);
+        });
+    </script>
+</body>
+</html>
+

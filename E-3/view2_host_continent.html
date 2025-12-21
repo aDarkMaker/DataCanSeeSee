@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Awesome-pyecharts</title>
+                <script type="text/javascript" src="https://assets.pyecharts.org/assets/v5/echarts.min.js"></script>
+            <script type="text/javascript" src="https://assets.pyecharts.org/assets/v5/themes/macarons.js"></script>
+
+    
+</head>
+<body >
+    <div id="chart2" class="chart-container" style="width:1600px; height:800px; "></div>
+    <script>
+        var chart_chart2 = echarts.init(
+            document.getElementById('chart2'), 'macarons', {renderer: 'canvas', locale: 'ZH'});
+        var option_chart2 = {
+    "backgroundColor": "#ffffff",
+    "animation": true,
+    "animationThreshold": 2000,
+    "animationDuration": 1000,
+    "animationEasing": "cubicOut",
+    "animationDelay": 0,
+    "animationDurationUpdate": 300,
+    "animationEasingUpdate": "cubicOut",
+    "animationDelayUpdate": 0,
+    "aria": {
+        "enabled": false
+    },
+    "series": [
+        {
+            "type": "pie",
+            "colorBy": "data",
+            "legendHoverLink": true,
+            "selectedMode": false,
+            "selectedOffset": 10,
+            "clockwise": true,
+            "startAngle": 90,
+            "minAngle": 0,
+            "minShowLabelAngle": 0,
+            "avoidLabelOverlap": true,
+            "stillShowZeroSum": true,
+            "percentPrecision": 2,
+            "showEmptyCircle": true,
+            "emptyCircleStyle": {
+                "color": "lightgray",
+                "borderColor": "#000",
+                "borderWidth": 0,
+                "borderType": "solid",
+                "borderDashOffset": 0,
+                "borderCap": "butt",
+                "borderJoin": "bevel",
+                "borderMiterLimit": 10,
+                "opacity": 1
+            },
+            "data": [
+                {
+                    "name": "Europe",
+                    "value": 11
+                },
+                {
+                    "name": "America",
+                    "value": 8
+                },
+                {
+                    "name": "Asia",
+                    "value": 1
+                },
+                {
+                    "name": "Africa",
+                    "value": 1
+                }
+            ],
+            "radius": [
+                "30%",
+                "65%"
+            ],
+            "center": [
+                "50%",
+                "55%"
+            ],
+            "roseType": "radius",
+            "label": {
+                "show": true,
+                "color": "#1e293b",
+                "margin": 8,
+                "fontSize": 14,
+                "fontWeight": "bold",
+                "fontFamily": "Arial, sans-serif",
+                "formatter": "{b}\n{c}\u6b21\n({d}%)",
+                "valueAnimation": false
+            },
+            "labelLine": {
+                "show": true,
+                "showAbove": false,
+                "length": 15,
+                "length2": 15,
+                "smooth": false,
+                "minTurnAngle": 90,
+                "maxSurfaceAngle": 90
+            },
+            "itemStyle": {
+                "borderColor": "#ffffff",
+                "borderWidth": 3
+            },
+            "rippleEffect": {
+                "show": true,
+                "brushType": "stroke",
+                "scale": 2.5,
+                "period": 4
+            }
+        }
+    ],
+    "legend": [
+        {
+            "data": [
+                "Europe",
+                "America",
+                "Asia",
+                "Africa"
+            ],
+            "selected": {},
+            "show": true,
+            "left": "78%",
+            "top": "25%",
+            "orient": "vertical",
+            "padding": 5,
+            "itemGap": 12,
+            "itemWidth": 25,
+            "itemHeight": 16,
+            "textStyle": {
+                "color": "#475569",
+                "fontFamily": "Arial, sans-serif",
+                "fontSize": 14
+            },
+            "backgroundColor": "transparent",
+            "borderColor": "#ccc",
+            "borderRadius": 0,
+            "pageButtonItemGap": 5,
+            "pageButtonPosition": "end",
+            "pageFormatter": "{current}/{total}",
+            "pageIconColor": "#2f4554",
+            "pageIconInactiveColor": "#aaa",
+            "pageIconSize": 15,
+            "animationDurationUpdate": 800,
+            "selector": false,
+            "selectorPosition": "auto",
+            "selectorItemGap": 7,
+            "selectorButtonGap": 10
+        }
+    ],
+    "tooltip": {
+        "show": true,
+        "trigger": "item",
+        "triggerOn": "mousemove|click",
+        "axisPointer": {
+            "type": "line"
+        },
+        "showContent": true,
+        "alwaysShowContent": false,
+        "showDelay": 0,
+        "hideDelay": 100,
+        "enterable": false,
+        "confine": false,
+        "appendToBody": false,
+        "transitionDuration": 0.4,
+        "formatter": "{b}: {c}\u6b21 ({d}%)",
+        "textStyle": {
+            "color": "#f1f5f9",
+            "fontFamily": "Arial, sans-serif",
+            "fontSize": 13
+        },
+        "backgroundColor": "rgba(30, 41, 59, 0.95)",
+        "borderColor": "#475569",
+        "borderWidth": 1,
+        "padding": [
+            12,
+            16
+        ],
+        "order": "seriesAsc"
+    },
+    "color": [
+        "#667eea",
+        "#10b981",
+        "#f59e0b",
+        "#3b82f6",
+        "#8b5cf6"
+    ],
+    "title": [
+        {
+            "show": true,
+            "text": "\u5404\u6d32\u4e3e\u529e\u4e16\u754c\u676f\u6b21\u6570\u5206\u5e03",
+            "target": "blank",
+            "subtext": "\u6b27\u6d32\u548c\u7f8e\u6d32\u662f\u4e3b\u8981\u4e3e\u529e\u5730",
+            "subtarget": "blank",
+            "left": "center",
+            "top": "3%",
+            "padding": 5,
+            "itemGap": 10,
+            "textAlign": "auto",
+            "textVerticalAlign": "auto",
+            "triggerEvent": false,
+            "textStyle": {
+                "color": "#1e293b",
+                "fontWeight": "bold",
+                "fontFamily": "Arial, sans-serif",
+                "fontSize": 28
+            },
+            "subtextStyle": {
+                "color": "#64748b",
+                "fontFamily": "Arial, sans-serif",
+                "fontSize": 14
+            }
+        }
+    ]
+};
+        chart_chart2.setOption(option_chart2);
+    </script>
+</body>
+</html>

@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Awesome-pyecharts</title>
+                <script type="text/javascript" src="https://assets.pyecharts.org/assets/v5/echarts.min.js"></script>
+            <script type="text/javascript" src="https://assets.pyecharts.org/assets/v5/themes/macarons.js"></script>
+
+    
+</head>
+<body >
+    <div id="chart1" class="chart-container" style="width:1600px; height:800px; "></div>
+    <script>
+        var chart_chart1 = echarts.init(
+            document.getElementById('chart1'), 'macarons', {renderer: 'canvas', locale: 'ZH'});
+        var option_chart1 = {
+    "backgroundColor": "#ffffff",
+    "animation": true,
+    "animationThreshold": 2000,
+    "animationDuration": 1000,
+    "animationEasing": "cubicOut",
+    "animationDelay": 0,
+    "animationDurationUpdate": 300,
+    "animationEasingUpdate": "cubicOut",
+    "animationDelayUpdate": 0,
+    "aria": {
+        "enabled": false
+    },
+    "series": [
+        {
+            "type": "line",
+            "name": "\u603b\u8fdb\u7403\u6570",
+            "connectNulls": false,
+            "xAxisIndex": 0,
+            "symbol": "circle",
+            "symbolSize": 10,
+            "showSymbol": true,
+            "smooth": true,
+            "clip": true,
+            "step": false,
+            "stackStrategy": "samesign",
+            "data": [
+                [
+                    "1930",
+                    70
+                ],
+                [
+                    "1934",
+                    70
+                ],
+                [
+                    "1938",
+                    84
+                ],
+                [
+                    "1950",
+                    88
+                ],
+                [
+                    "1954",
+                    140
+                ],
+                [
+                    "1958",
+                    126
+                ],
+                [
+                    "1962",
+                    89
+                ],
+                [
+                    "1966",
+                    89
+                ],
+                [
+                    "1970",
+                    95
+                ],
+                [
+                    "1974",
+                    97
+                ],
+                [
+                    "1978",
+                    102
+                ],
+                [
+                    "1982",
+                    146
+                ],
+                [
+                    "1986",
+                    132
+                ],
+                [
+                    "1990",
+                    115
+                ],
+                [
+                    "1994",
+                    141
+                ],
+                [
+                    "1998",
+                    171
+                ],
+                [
+                    "2002",
+                    161
+                ],
+                [
+                    "2006",
+                    147
+                ],
+                [
+                    "2010",
+                    145
+                ],
+                [
+                    "2014",
+                    171
+                ],
+                [
+                    "2018",
+                    169
+                ]
+            ],
+            "hoverAnimation": true,
+            "label": {
+                "show": false,
+                "margin": 8,
+                "valueAnimation": false
+            },
+            "logBase": 10,
+            "seriesLayoutBy": "column",
+            "lineStyle": {
+                "show": true,
+                "width": 4,
+                "opacity": 1,
+                "curveness": 0,
+                "type": "solid",
+                "color": "#667eea"
+            },
+            "areaStyle": {
+                "opacity": 0.2,
+                "color": "#667eea"
+            },
+            "markPoint": {
+                "label": {
+                    "show": true,
+                    "color": "#ffffff",
+                    "margin": 8,
+                    "fontSize": 13,
+                    "fontWeight": "bold",
+                    "valueAnimation": false
+                },
+                "itemStyle": {
+                    "color": "#ef4444"
+                },
+                "data": [
+                    {
+                        "name": "\u6700\u5927\u503c",
+                        "type": "max",
+                        "symbolSize": 70
+                    },
+                    {
+                        "name": "\u6700\u5c0f\u503c",
+                        "type": "min",
+                        "symbolSize": 70
+                    }
+                ]
+            },
+            "markLine": {
+                "silent": false,
+                "precision": 2,
+                "label": {
+                    "show": true,
+                    "color": "#64748b",
+                    "margin": 8,
+                    "fontSize": 13,
+                    "fontWeight": "bold",
+                    "valueAnimation": false
+                },
+                "lineStyle": {
+                    "show": true,
+                    "width": 2,
+                    "opacity": 1,
+                    "curveness": 0,
+                    "type": "dashed",
+                    "color": "#f59e0b"
+                },
+                "data": [
+                    {
+                        "name": "\u5e73\u5747\u503c",
+                        "type": "average"
+                    }
+                ]
+            },
+            "itemStyle": {
+                "color": "#667eea",
+                "borderColor": "#ffffff",
+                "borderWidth": 3
+            },
+            "zlevel": 0,
+            "z": 0
+        }
+    ],
+    "legend": [
+        {
+            "data": [
+                "\u603b\u8fdb\u7403\u6570"
+            ],
+            "selected": {},
+            "show": true,
+            "left": "8%",
+            "top": "12%",
+            "padding": 5,
+            "itemGap": 10,
+            "itemWidth": 25,
+            "itemHeight": 14,
+            "textStyle": {
+                "color": "#475569",
+                "fontFamily": "Arial, sans-serif",
+                "fontSize": 14
+            },
+            "backgroundColor": "transparent",
+            "borderColor": "#ccc",
+            "borderRadius": 0,
+            "pageButtonItemGap": 5,
+            "pageButtonPosition": "end",
+            "pageFormatter": "{current}/{total}",
+            "pageIconColor": "#2f4554",
+            "pageIconInactiveColor": "#aaa",
+            "pageIconSize": 15,
+            "animationDurationUpdate": 800,
+            "selector": false,
+            "selectorPosition": "auto",
+            "selectorItemGap": 7,
+            "selectorButtonGap": 10
+        }
+    ],
+    "tooltip": {
+        "show": true,
+        "trigger": "axis",
+        "triggerOn": "mousemove|click",
+        "axisPointer": {
+            "type": "cross"
+        },
+        "showContent": true,
+        "alwaysShowContent": false,
+        "showDelay": 0,
+        "hideDelay": 100,
+        "enterable": false,
+        "confine": false,
+        "appendToBody": false,
+        "transitionDuration": 0.4,
+        "textStyle": {
+            "color": "#f1f5f9",
+            "fontFamily": "Arial, sans-serif",
+            "fontSize": 13
+        },
+        "backgroundColor": "rgba(30, 41, 59, 0.95)",
+        "borderColor": "#475569",
+        "borderWidth": 1,
+        "padding": [
+            12,
+            16
+        ],
+        "order": "seriesAsc"
+    },
+    "xAxis": [
+        {
+            "type": "category",
+            "name": "\u5e74\u4efd",
+            "show": true,
+            "scale": false,
+            "nameLocation": "middle",
+            "nameGap": 35,
+            "nameTextStyle": {
+                "color": "#475569",
+                "fontWeight": "bold",
+                "fontFamily": "Arial, sans-serif",
+                "fontSize": 15
+            },
+            "axisLine": {
+                "show": true,
+                "onZero": true,
+                "onZeroAxisIndex": 0,
+                "lineStyle": {
+                    "show": true,
+                    "width": 2,
+                    "opacity": 1,
+                    "curveness": 0,
+                    "type": "solid",
+                    "color": "#cbd5e1"
+                }
+            },
+            "axisLabel": {
+                "show": true,
+                "color": "#64748b",
+                "rotate": 0,
+                "margin": 8,
+                "interval": 2,
+                "fontSize": 12,
+                "fontFamily": "Arial, sans-serif",
+                "valueAnimation": false
+            },
+            "inverse": false,
+            "offset": 0,
+            "splitNumber": 5,
+            "minInterval": 0,
+            "splitLine": {
+                "show": true,
+                "lineStyle": {
+                    "show": true,
+                    "width": 1,
+                    "opacity": 0.2,
+                    "curveness": 0,
+                    "type": "dashed",
+                    "color": "#cbd5e1"
+                }
+            },
+            "animation": true,
+            "animationThreshold": 2000,
+            "animationDuration": 1000,
+            "animationEasing": "cubicOut",
+            "animationDelay": 0,
+            "animationDurationUpdate": 300,
+            "animationEasingUpdate": "cubicOut",
+            "animationDelayUpdate": 0,
+            "data": [
+                "1930",
+                "1934",
+                "1938",
+                "1950",
+                "1954",
+                "1958",
+                "1962",
+                "1966",
+                "1970",
+                "1974",
+                "1978",
+                "1982",
+                "1986",
+                "1990",
+                "1994",
+                "1998",
+                "2002",
+                "2006",
+                "2010",
+                "2014",
+                "2018"
+            ]
+        }
+    ],
+    "yAxis": [
+        {
+            "type": "category",
+            "name": "\u8fdb\u7403\u6570",
+            "show": true,
+            "scale": false,
+            "nameLocation": "middle",
+            "nameGap": 60,
+            "nameTextStyle": {
+                "color": "#475569",
+                "fontWeight": "bold",
+                "fontFamily": "Arial, sans-serif",
+                "fontSize": 15
+            },
+            "axisLine": {
+                "show": true,
+                "onZero": true,
+                "onZeroAxisIndex": 0,
+                "lineStyle": {
+                    "show": true,
+                    "width": 2,
+                    "opacity": 1,
+                    "curveness": 0,
+                    "type": "solid",
+                    "color": "#cbd5e1"
+                }
+            },
+            "axisLabel": {
+                "show": true,
+                "color": "#64748b",
+                "rotate": 0,
+                "margin": 8,
+                "interval": "auto",
+                "fontSize": 12,
+                "fontFamily": "Arial, sans-serif",
+                "valueAnimation": false
+            },
+            "inverse": false,
+            "offset": 0,
+            "splitNumber": 5,
+            "minInterval": 0,
+            "splitLine": {
+                "show": true,
+                "lineStyle": {
+                    "show": true,
+                    "width": 1,
+                    "opacity": 0.2,
+                    "curveness": 0,
+                    "type": "dashed",
+                    "color": "#cbd5e1"
+                }
+            },
+            "animation": true,
+            "animationThreshold": 2000,
+            "animationDuration": 1000,
+            "animationEasing": "cubicOut",
+            "animationDelay": 0,
+            "animationDurationUpdate": 300,
+            "animationEasingUpdate": "cubicOut",
+            "animationDelayUpdate": 0
+        }
+    ],
+    "title": [
+        {
+            "show": true,
+            "text": "\u5386\u5c4a\u4e16\u754c\u676f\u603b\u8fdb\u7403\u6570\u8d8b\u52bf",
+            "target": "blank",
+            "subtext": "1930-2018\u5e74\u517121\u5c4a\u4e16\u754c\u676f\u8fdb\u7403\u6570\u636e",
+            "subtarget": "blank",
+            "left": "center",
+            "top": "3%",
+            "padding": 5,
+            "itemGap": 10,
+            "textAlign": "auto",
+            "textVerticalAlign": "auto",
+            "triggerEvent": false,
+            "textStyle": {
+                "color": "#1e293b",
+                "fontWeight": "bold",
+                "fontFamily": "Arial, sans-serif",
+                "fontSize": 28
+            },
+            "subtextStyle": {
+                "color": "#64748b",
+                "fontFamily": "Arial, sans-serif",
+                "fontSize": 14
+            }
+        }
+    ]
+};
+        chart_chart1.setOption(option_chart1);
+    </script>
+</body>
+</html>
